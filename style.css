@@ -1,0 +1,229 @@
+/* Общие настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f7fb;
+    color: #1e293b;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Шапка */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.age-tag {
+    background: #dbeafe;
+    color: #1e40af;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.intro {
+    font-size: 1.2rem;
+    color: #334155;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Карточки */
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card h2 i {
+    color: #2563eb;
+}
+
+/* Теги (игры, музыка) */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.tag {
+    background: #eef2ff;
+    color: #1e40af;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.tag:hover {
+    background: #dbeafe;
+}
+
+.note {
+    font-style: italic;
+    color: #475569;
+    margin-top: 10px;
+}
+
+/* Предупреждение о железе */
+.warning {
+    background: #fff7ed;
+    border-left: 4px solid #f97316;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin: 20px 0 10px;
+}
+
+.warning i {
+    color: #f97316;
+    font-size: 1.5rem;
+}
+
+.warning p {
+    margin: 0;
+}
+
+/* Контакты */
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1.1rem;
+}
+
+.contact-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-list i {
+    width: 24px;
+    color: #2563eb;
+    font-size: 1.3rem;
+}
+
+.copy-text {
+    cursor: pointer;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.copy-btn:hover {
+    background: #e2e8f0;
+}
+
+.steam-note {
+    margin-top: 10px;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 30px 0 10px;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+
+    .tags {
+        gap: 8px;
+    }
+
+    .tag {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .warning {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-list li {
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .copy-btn {
+        margin-left: 0;
+    }
+}

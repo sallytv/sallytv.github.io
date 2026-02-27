@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.SallyTV - Сайт.</title>
+    <!-- Подключаем CSS и шрифты -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome для иконок (бесплатно) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <header>
+            <h1>Привет, я Костя!</h1>
+            <p class="intro">Я стримлю и снимаю игры просто для души, без хайпа. Добро пожаловать в мой уголок!</p>
+        </header>
+
+        <!-- Основное содержание -->
+        <main>
+            <!-- О себе и стримах -->
+            <section class="card">
+                <h2><i class="fas fa-gamepad"></i> О моём контенте</h2>
+                <p>Стримить буду разные игры, делать реакции на YouTube и Twitch. Главное — кайфовать процессом, а не погоня за лайками.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p><strong>Важно:</strong> у меня слабое железо (Intel Pentium N3540, 4 ГБ ОЗУ), поэтому возможны лаги и вылеты. Но я вкладываю душу — надеюсь, вы это оцените!</p>
+                </div>
+            </section>
+
+            <!-- Отношение к критике -->
+            <section class="card">
+                <h2><i class="fas fa-comment-dots"></i> Как принимать критику</h2>
+                <p>Критику принимаю только в уважительной форме. Если хотите указать на ошибку — просто скажите спокойно, я прислушаюсь. Грубость и оскорбления сразу ведут в бан. Я за позитив!</p>
+            </section>
+
+            <!-- Любимые игры -->
+            <section class="card">
+                <h2><i class="fas fa-heart"></i> Мои любимые игры</h2>
+                <div class="tags">
+                    <span class="tag">Skyrim</span>
+                    <span class="tag">Fallout 3</span>
+                    <span class="tag">Fallout New Vegas</span>
+                    <span class="tag">Portal</span>
+                    <span class="tag">Left 4 Dead 2</span>
+                    <span class="tag">Half-Life</span>
+                    <span class="tag">Minecraft</span>
+                    <span class="tag">Roblox</span>
+                    <span class="tag">F.E.A.R.</span>
+                    <span class="tag">CS 1.6</span>
+                    <span class="tag">Condition Zero</span>
+                    <span class="tag">Ultrakill</span>
+                    <span class="tag">People Playground</span>
+                    <span class="tag">Terraria</span>
+                </div>
+                <p class="note">Особенно обожаю игры Bethesda и Valve — они легенды!</p>
+            </section>
+
+            <!-- Любимая музыка -->
+            <section class="card">
+                <h2><i class="fas fa-music"></i> Что я слушаю</h2>
+                <div class="tags">
+                    <span class="tag">Amorphis</span>
+                    <span class="tag">Skillet</span>
+                    <span class="tag">Alestorm</span>
+                    <span class="tag">Starset</span>
+                    <span class="tag">Linkin Park</span>
+                    <span class="tag">Sabaton</span>
+                </div>
+                <p>Рок и метал — моё всё. Включаю и просто кайфую, без копания в биографиях :D</p>
+            </section>
+
+            <!-- Авиация -->
+            <section class="card">
+                <h2><i class="fas fa-plane"></i> Моё второе сердце — гражданская авиация</h2>
+                <p>Обожаю авиакатастрофы (в смысле расследования), историю гражданских самолётов и грузовые рейсы. Военная авиация — не моё, слишком динамично. А мне нравится это чувство спокойствия: 11 км над землёй, автопилот, радио...</p>
+            </section>
+
+            <!-- IT и будущее -->
+            <section class="card">
+                <h2><i class="fas fa-laptop-code"></i> Я и IT</h2>
+                <p>Хочу стать фронтенд-разработчиком или SEO-специалистом. Веб-дизайн в Figma или Tilda тоже запасной вариант. Бэкенд пока страшит своей математикой :)</p>
+            </section>
+
+            <!-- Контакты -->
+            <section class="card contacts">
+                <h2><i class="fas fa-address-card"></i> Где со мной связаться</h2>
+                <ul class="contact-list">
+                    <li><i class="fab fa-telegram"></i> <span class="copy-text" data-copy="@Sa11yTV">@Sa11yTV</span> <button class="copy-btn" data-copy="@Sa11yTV">📋</button></li>
+                    <li><i class="fab fa-discord"></i> <span class="copy-text" data-copy="sallytv_">sallytv_</span> <button class="copy-btn" data-copy="sallytv_">📋</button></li>
+                    <li><i class="fab fa-steam"></i> <span class="copy-text" data-copy="1770116796">1770116796</span> <button class="copy-btn" data-copy="1770116796">📋</button></li>
+                </ul>
+                <p class="steam-note">Steam ID — добавляйтесь в друзья!</p>
+            </section>
+
+            <!-- Финальные слова -->
+            <section class="card farewell">
+                <p>Спасибо, что прочитали! Надеюсь, вы поняли, кто я и какова моя точка зрения.</p>
+            </section>
+        </main>
+
+        <!-- Футер -->
+        <footer>
+            <p>© <span id="current-year"></span> sallytv.online — сделано с душой</p>
+        </footer>
+    </div>
+
+    <!-- Подключаем JS -->
+    <script src="script.js"></script>
+</body>
+</html>

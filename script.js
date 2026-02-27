@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         container.innerHTML = '';
 
-        // Увеличил количество до 22 штук
-        const count = 22;
+        const count = 10;
 
         for (let i = 0; i < count; i++) {
             const hex = document.createElement('div');

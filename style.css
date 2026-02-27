@@ -6,13 +6,14 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #ffffff;
-    color: #1e1e1e;
+    font-family: 'Cormorant SC', serif;  /* твой красивый шрифт */
+    background: #000000;  /* чёрный фон */
+    color: #ffffff;  /* белый текст */
     line-height: 1.6;
     padding: 20px;
     position: relative;
     min-height: 100vh;
+    font-weight: 400;
 }
 
 /* Контейнер для фоновых шестиугольников */
@@ -23,35 +24,37 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    pointer-events: none; /* чтобы не мешать кликам */
+    pointer-events: none;
     z-index: 0;
 }
 
 .hexagon {
     position: absolute;
-    background: rgba(0, 0, 0, 0.08); /* очень светлые серые */
+    background: rgba(255, 255, 255, 0.2);  /* белые с прозрачностью */
+    border: 1px solid rgba(255, 255, 255, 0.3);  /* белая обводка для яркости */
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     width: 80px;
     height: 70px;
-    opacity: 0.15;
-    filter: blur(1px);
-    animation: float 20s infinite ease-in-out;
+    opacity: 0.25;  /* заметнее, чем было */
+    filter: blur(0.5px);
+    animation: float 18s infinite ease-in-out;
     will-change: transform;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
-/* Разные вариации размеров и задержек анимации задаются через JS */
+/* Разные размеры и анимации задаются в JS */
 @keyframes float {
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
     25% {
-        transform: translate(30px, -20px) rotate(5deg);
+        transform: translate(40px, -25px) rotate(8deg);
     }
     50% {
-        transform: translate(10px, 30px) rotate(10deg);
+        transform: translate(15px, 40px) rotate(15deg);
     }
     75% {
-        transform: translate(-25px, 10px) rotate(5deg);
+        transform: translate(-35px, 15px) rotate(8deg);
     }
     100% {
         transform: translate(0, 0) rotate(0deg);
@@ -62,7 +65,7 @@ body {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
-    z-index: 1; /* чтобы контент был поверх фона */
+    z-index: 1;
 }
 
 /* Шапка */
@@ -72,46 +75,54 @@ header {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 8px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+    letter-spacing: 2px;
 }
 
 .intro {
-    font-size: 1.2rem;
-    color: #2c2c2c;
+    font-size: 1.4rem;
+    color: #e0e0e0;
     max-width: 700px;
     margin: 0 auto;
+    font-weight: 400;
 }
 
 /* Карточки */
 .card {
-    background: #fafafa;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 24px;
     padding: 30px;
     margin-bottom: 25px;
-    box-shadow: 0 10px 20px -8px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px -8px rgba(255,255,255,0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 30px -12px rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.3);
 }
 
 .card h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #111;
+    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 10px;
+    letter-spacing: 1px;
 }
 
 .card h2 i {
-    color: #3a3a3a; /* серый вместо синего */
+    color: #ffffff;
+    opacity: 0.9;
 }
 
 /* Теги (игры, музыка) */
@@ -123,29 +134,32 @@ h1 {
 }
 
 .tag {
-    background: #eaeaea;
-    color: #222;
-    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 8px 18px;
     border-radius: 30px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: all 0.2s;
+    backdrop-filter: blur(2px);
 }
 
 .tag:hover {
-    background: #d0d0d0;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .note {
     font-style: italic;
-    color: #444;
+    color: #cccccc;
     margin-top: 10px;
 }
 
 /* Предупреждение о железе */
 .warning {
-    background: #f2f2f2;
-    border-left: 4px solid #6b6b6b;
+    background: rgba(40, 40, 40, 0.9);
+    border-left: 4px solid #ffffff;
     padding: 16px;
     border-radius: 16px;
     display: flex;
@@ -155,7 +169,7 @@ h1 {
 }
 
 .warning i {
-    color: #6b6b6b;
+    color: #ffffff;
     font-size: 1.5rem;
 }
 
@@ -173,8 +187,8 @@ h1 {
     align-items: center;
     gap: 12px;
     padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
 }
 
 .contact-list li:last-child {
@@ -183,45 +197,48 @@ h1 {
 
 .contact-list i {
     width: 24px;
-    color: #3a3a3a;
-    font-size: 1.3rem;
+    color: #ffffff;
+    font-size: 1.4rem;
 }
 
 .copy-text {
     cursor: pointer;
-    color: #222;
+    color: #ffffff;
     font-weight: 500;
+    text-decoration: underline dotted rgba(255,255,255,0.4);
 }
 
 .copy-btn {
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1.2rem;
     cursor: pointer;
     margin-left: auto;
-    padding: 4px 8px;
+    padding: 4px 10px;
     border-radius: 8px;
-    transition: background 0.2s;
-    color: #333;
+    transition: all 0.2s;
+    color: #ffffff;
 }
 
 .copy-btn:hover {
-    background: #d4d4d4;
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .steam-note {
     margin-top: 10px;
-    color: #4a4a4a;
-    font-size: 0.95rem;
+    color: #b0b0b0;
+    font-size: 1rem;
 }
 
 /* Футер */
 footer {
     text-align: center;
     padding: 30px 0 10px;
-    color: #5a5a5a;
-    border-top: 1px solid #ccc;
+    color: #a0a0a0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     margin-top: 20px;
+    font-size: 1rem;
 }
 
 /* Адаптивность */
@@ -231,7 +248,7 @@ footer {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
 
     .card {
@@ -239,7 +256,7 @@ footer {
     }
 
     .card h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .tags {
@@ -247,8 +264,8 @@ footer {
     }
 
     .tag {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        padding: 6px 14px;
+        font-size: 0.9rem;
     }
 
     .warning {
@@ -257,7 +274,7 @@ footer {
     }
 
     .contact-list li {
-        font-size: 1rem;
+        font-size: 1.1rem;
         flex-wrap: wrap;
     }
 

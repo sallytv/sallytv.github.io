@@ -1,40 +1,38 @@
-// Устанавливаем текущий год в футере
 document.addEventListener('DOMContentLoaded', function() {
+    // Год в футере
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Генерация фоновых шестиугольников
+    // Генерация шестиугольников
     function createHexagons() {
         const container = document.getElementById('hexagonBg');
         if (!container) return;
 
-        // Удаляем старые (на всякий случай)
         container.innerHTML = '';
 
-        // Количество шестиугольников
-        const count = 18;
+        // Увеличил количество до 22 штук
+        const count = 22;
 
         for (let i = 0; i < count; i++) {
             const hex = document.createElement('div');
             hex.className = 'hexagon';
 
-            // Случайные размеры (от 40 до 150px в ширину)
-            const size = 40 + Math.random() * 110;
+            // Размеры от 50 до 180px
+            const size = 50 + Math.random() * 130;
             hex.style.width = size + 'px';
-            hex.style.height = (size * 0.866) + 'px'; // высота примерно под пропорцию шестиугольника
+            hex.style.height = (size * 0.866) + 'px';
 
-            // Случайное начальное положение
             hex.style.left = Math.random() * 100 + '%';
             hex.style.top = Math.random() * 100 + '%';
 
-            // Немного разная прозрачность
-            hex.style.opacity = 0.05 + Math.random() * 0.15;
+            // Прозрачность от 0.2 до 0.4 (ярче)
+            hex.style.opacity = 0.2 + Math.random() * 0.25;
 
-            // Разные задержки и длительности анимации
-            const duration = 15 + Math.random() * 20; // от 15 до 35 секунд
-            const delay = Math.random() * 10; // от 0 до 10 секунд
+            // Анимация: длительность 12-30 сек, задержка 0-12 сек
+            const duration = 12 + Math.random() * 18;
+            const delay = Math.random() * 12;
             hex.style.animation = `float ${duration}s infinite ease-in-out ${delay}s`;
 
             container.appendChild(hex);
@@ -43,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     createHexagons();
 
-    // Функция копирования текста в буфер
+    // Копирование в буфер
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
             alert(`Скопировано: ${text}`);
@@ -52,26 +50,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Назначаем обработчики на кнопки копирования
     const copyButtons = document.querySelectorAll('.copy-btn');
     copyButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.stopPropagation();
             const textToCopy = button.getAttribute('data-copy');
-            if (textToCopy) {
-                copyToClipboard(textToCopy);
-            }
+            if (textToCopy) copyToClipboard(textToCopy);
         });
     });
 
-    // Копирование по клику на текст
     const copyTexts = document.querySelectorAll('.copy-text');
     copyTexts.forEach(span => {
         span.addEventListener('click', () => {
             const textToCopy = span.getAttribute('data-copy');
-            if (textToCopy) {
-                copyToClipboard(textToCopy);
-            }
+            if (textToCopy) copyToClipboard(textToCopy);
         });
     });
 });

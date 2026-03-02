@@ -133,6 +133,14 @@ h1 {
     font-weight: 500;
     transition: all 0.2s;
     backdrop-filter: blur(2px);
+
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tag:visited {
+    color: inherit;
 }
 
 .tag:hover {

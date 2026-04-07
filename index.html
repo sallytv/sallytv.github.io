@@ -2,116 +2,146 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.SallyTV - Сайт.</title>
-    <!-- Подключаем CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome для иконок -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SallyTV | Стримы, игры, авиация — уголок Кости</title>
+    
+    <!-- SEO метатеги -->
+    <meta name="description" content="Сайт-визитка Кости (SallyTV). Стримы без хайпа, игры Bethesda/Valve, рок-музыка, гражданская авиация и планы на фронтенд. Присоединяйся!">
+    <meta name="keywords" content="SallyTV, стример, игры, Skyrim, Fallout, фронтенд разработка, авиация, рок музыка, сайт визитка">
+    <meta name="author" content="Konstantin SallyTV">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SallyTV — стримы для души">
+    <meta property="og:description" content="Игры, метал, авиация и IT. Добро пожаловать в мой уголок!">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=SallyTV+Streamer">
+    <meta property="og:url" content="https://sallytv.online">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SallyTV — уголок Кости">
+    <meta name="twitter:description" content="Стримы, ретро-PC, любовь к авиации и року. Заходи как к другу!">
+    
+    <!-- Schema.org микроразметка (Person + ProfilePage) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Konstantin SallyTV",
+      "alternateName": "SallyTV",
+      "description": "Стример и создатель контента, играет в игры для души, увлекается гражданской авиацией, рок-музыкой и фронтенд-разработкой.",
+      "url": "https://sallytv.online",
+      "sameAs": [
+        "https://t.me/Sa11yTV",
+        "https://steamcommunity.com/profiles/1770116796"
+      ],
+      "knowsAbout": ["Видеоигры", "Фронтенд-разработка", "Гражданская авиация", "Рок-музыка"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "social media",
+        "availableLanguage": "Russian"
+      }
+    }
+    </script>
+    
+    <!-- Подключаем внешние ресурсы -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cormorant+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Контейнер для фоновых шестиугольников -->
-    <div class="hexagon-bg" id="hexagonBg"></div>
 
-    <div class="container">
-        <!-- Шапка -->
-        <header>
-            <h1>Привет, я Костя!</h1>
-            <p class="intro">Я стримлю и снимаю игры просто для души, без хайпа. Добро пожаловать в мой уголок!</p>
-        </header>
+<div class="hexagon-bg" id="hexagonBg"></div>
+<div class="container">
+    <header>
+        <h1>Привет, я Костя!</h1>
+        <div class="intro">стримлю и снимаю игры просто для души, без хайпа. Добро пожаловать в мой уголок!</div>
+    </header>
 
-        <!-- Основное содержание -->
-        <main>
-            <!-- О себе и стримах -->
-            <section class="card">
-                <h2><i class="fas fa-gamepad"></i> О моём контенте</h2>
-                <p>Стримить буду разные игры, делать реакции на YouTube и Twitch. Главное — кайфовать процессом, а не погоня за лайками.</p>
-                <div class="warning">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <p><strong>Важно:</strong> у меня слабое железо (Intel Pentium N3540, 4 ГБ ОЗУ), поэтому возможны лаги и вылеты. Но я вкладываю душу — надеюсь, вы это оцените!</p>
-                </div>
-            </section>
+    <main>
+        <section class="card" style="animation-delay: 0.02s;">
+            <h2><i class="fas fa-gamepad"></i> О моём контенте</h2>
+            <p>Стримить буду разные игры, делать реакции на YouTube и Twitch. Главное — кайфовать процессом, а не погоня за лайками.</p>
+            <div class="warning">
+                <i class="fas fa-microchip"></i>
+                <p><strong>Важно:</strong> у меня слабое железо (Intel Pentium N3540, 4 ГБ ОЗУ), поэтому возможны лаги и вылеты. Но я вкладываю душу — надеюсь, вы это оцените!</p>
+            </div>
+        </section>
 
-            <!-- Отношение к критике -->
-            <section class="card">
-                <h2><i class="fas fa-comment-dots"></i> Как принимать критику</h2>
-                <p>Критику принимаю только в уважительной форме. Если хотите указать на ошибку — просто скажите спокойно, я прислушаюсь. Грубость и оскорбления сразу ведут в бан. Я за позитив!</p>
-            </section>
+        <section class="card" style="animation-delay: 0.05s;">
+            <h2><i class="fas fa-comment-dots"></i> Как принимать критику</h2>
+            <p>Критику принимаю только в уважительной форме. Если хотите указать на ошибку — просто скажите спокойно, я прислушаюсь. Грубость и оскорбления сразу ведут в бан. Я за позитив!</p>
+        </section>
 
- <!-- Любимые игры -->
- <section class="card">
-    <h2><i class="fas fa-heart"></i> Мои любимые игры</h2>
-    <div class="tags">
-        <a href="https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/" class="tag" target="_blank" rel="noopener noreferrer">Skyrim</a>
-        <a href="https://store.steampowered.com/app/22370/Fallout_3/" class="tag" target="_blank" rel="noopener noreferrer">Fallout 3</a>
-        <a href="https://store.steampowered.com/app/22380/Fallout_New_Vegas/" class="tag" target="_blank" rel="noopener noreferrer">Fallout New Vegas</a>
-        <a href="https://store.steampowered.com/app/400/Portal/" class="tag" target="_blank" rel="noopener noreferrer">Portal</a>
-        <a href="https://store.steampowered.com/app/550/Left_4_Dead_2/" class="tag" target="_blank" rel="noopener noreferrer">Left 4 Dead 2</a>
-        <a href="https://store.steampowered.com/app/70/HalfLife/" class="tag" target="_blank" rel="noopener noreferrer">Half-Life</a>
-        <a href="https://www.minecraft.net/" class="tag" target="_blank" rel="noopener noreferrer">Minecraft</a>
-        <a href="https://www.roblox.com/" class="tag" target="_blank" rel="noopener noreferrer">Roblox</a>
-        <a href="https://store.steampowered.com/app/21090/FEAR/" class="tag" target="_blank" rel="noopener noreferrer">F.E.A.R.</a>
-        <a href="https://store.steampowered.com/app/10/CounterStrike/" class="tag" target="_blank" rel="noopener noreferrer">CS 1.6</a>
-        <a href="https://store.steampowered.com/app/80/CounterStrike_Condition_Zero/" class="tag" target="_blank" rel="noopener noreferrer">Condition Zero</a>
-        <a href="https://store.steampowered.com/app/1229490/ULTRAKILL/" class="tag" target="_blank" rel="noopener noreferrer">Ultrakill</a>
-        <a href="https://store.steampowered.com/app/1118200/People_Playground/" class="tag" target="_blank" rel="noopener noreferrer">People Playground</a>
-        <a href="https://store.steampowered.com/app/105600/Terraria/" class="tag" target="_blank" rel="noopener noreferrer">Terraria</a>
-    </div>
-    <p class="note">Особенно обожаю игры Bethesda и Valve — они легенды!</p>
- </section>
+        <section class="card" style="animation-delay: 0.08s;">
+            <h2><i class="fas fa-heart"></i> Мои любимые игры</h2>
+            <div class="tags">
+                <a href="https://store.steampowered.com/app/489830/" class="tag" target="_blank" rel="noopener"><i class="fab fa-steam"></i> Skyrim</a>
+                <a href="https://store.steampowered.com/app/22370/" class="tag" target="_blank"><i class="fab fa-steam"></i> Fallout 3</a>
+                <a href="https://store.steampowered.com/app/22380/" class="tag" target="_blank"><i class="fab fa-steam"></i> Fallout NV</a>
+                <a href="https://store.steampowered.com/app/400/" class="tag" target="_blank"><i class="fab fa-steam"></i> Portal</a>
+                <a href="https://store.steampowered.com/app/550/" class="tag" target="_blank"><i class="fab fa-steam"></i> L4D2</a>
+                <a href="https://store.steampowered.com/app/70/" class="tag" target="_blank"><i class="fab fa-steam"></i> Half-Life</a>
+                <a href="https://www.minecraft.net/" class="tag" target="_blank"><i class="fas fa-cube"></i> Minecraft</a>
+                <a href="https://www.roblox.com/" class="tag" target="_blank"><i class="fas fa-gamepad"></i> Roblox</a>
+                <a href="https://store.steampowered.com/app/21090/" class="tag" target="_blank"><i class="fab fa-steam"></i> F.E.A.R.</a>
+                <a href="https://store.steampowered.com/app/10/" class="tag" target="_blank"><i class="fab fa-steam"></i> CS 1.6</a>
+                <a href="https://store.steampowered.com/app/80/" class="tag" target="_blank"><i class="fab fa-steam"></i> Condition Zero</a>
+                <a href="https://store.steampowered.com/app/1229490/" class="tag" target="_blank"><i class="fab fa-steam"></i> Ultrakill</a>
+                <a href="https://store.steampowered.com/app/1118200/" class="tag" target="_blank"><i class="fab fa-steam"></i> People Playground</a>
+                <a href="https://store.steampowered.com/app/105600/" class="tag" target="_blank"><i class="fab fa-steam"></i> Terraria</a>
+            </div>
+            <p class="note">🎮 Особенно обожаю игры Bethesda и Valve — они легенды!</p>
+        </section>
 
-            <!-- Любимая музыка -->
-            <section class="card">
-                <h2><i class="fas fa-music"></i> Что я слушаю</h2>
-                <div class="tags">
-                    <span class="tag">Amorphis</span>
-                    <span class="tag">Skillet</span>
-                    <span class="tag">Alestorm</span>
-                    <span class="tag">Starset</span>
-                    <span class="tag">Linkin Park</span>
-                    <span class="tag">Sabaton</span>
-                </div>
-                <p>Рок и метал — моё всё. Включаю и просто кайфую, без копания в биографиях :D</p>
-            </section>
+        <section class="card" style="animation-delay: 0.11s;">
+            <h2><i class="fas fa-music"></i> Что я слушаю</h2>
+            <div class="tags">
+                <span class="tag"><i class="fas fa-guitar"></i> Amorphis</span>
+                <span class="tag"><i class="fas fa-drum"></i> Skillet</span>
+                <span class="tag"><i class="fas fa-skull"></i> Alestorm</span>
+                <span class="tag"><i class="fas fa-satellite"></i> Starset</span>
+                <span class="tag"><i class="fas fa-fire"></i> Linkin Park</span>
+                <span class="tag"><i class="fas fa-shield-alt"></i> Sabaton</span>
+            </div>
+            <p>Рок и метал — моё всё. Включаю и просто кайфую, без копания в биографиях :D</p>
+        </section>
 
-            <!-- Авиация -->
-            <section class="card">
-                <h2><i class="fas fa-plane"></i> Моё второе сердце — гражданская авиация</h2>
-                <p>Обожаю авиакатастрофы (в смысле расследования), историю гражданских самолётов и грузовые рейсы. Военная авиация — не моё, слишком динамично. А мне нравится это чувство спокойствия: 11 км над землёй, автопилот, радио...</p>
-            </section>
+        <section class="card" style="animation-delay: 0.14s;">
+            <h2><i class="fas fa-plane"></i> Моё второе сердце — гражданская авиация</h2>
+            <p>Обожаю авиакатастрофы (в смысле расследования), историю гражданских самолётов и грузовые рейсы. Военная авиация — не моё, слишком динамично. А мне нравится это чувство спокойствия: 11 км над землёй, автопилот, радио...</p>
+        </section>
 
-            <!-- IT и будущее -->
-            <section class="card">
-                <h2><i class="fas fa-laptop-code"></i> Я и IT</h2>
-                <p>Хочу стать фронтенд-разработчиком или SEO-специалистом. Веб-дизайн в Figma или Tilda тоже запасной вариант. Бэкенд пока страшит своей математикой :)</p>
-            </section>
+        <section class="card" style="animation-delay: 0.17s;">
+            <h2><i class="fas fa-laptop-code"></i> Я и IT</h2>
+            <p>Хочу стать фронтенд-разработчиком или SEO-специалистом. Веб-дизайн в Figma или Tilda тоже запасной вариант. Бэкенд пока страшит своей математикой :)</p>
+        </section>
 
-            <!-- Контакты -->
-            <section class="card contacts">
-                <h2><i class="fas fa-address-card"></i> Где со мной связаться</h2>
-                <ul class="contact-list">
-                    <li><i class="fab fa-telegram"></i> <span class="copy-text" data-copy="@Sa11yTV">@Sa11yTV</span> <button class="copy-btn" data-copy="@Sa11yTV">📋</button></li>
-                    <li><i class="fab fa-discord"></i> <span class="copy-text" data-copy="sallytv_">sallytv_</span> <button class="copy-btn" data-copy="sallytv_">📋</button></li>
-                    <li><i class="fab fa-steam"></i> <span class="copy-text" data-copy="1770116796">1770116796</span> <button class="copy-btn" data-copy="1770116796">📋</button></li>
-                </ul>
-                <p class="steam-note">Steam ID — добавляйтесь в друзья!</p>
-            </section>
+        <section class="card contacts" style="animation-delay: 0.20s;">
+            <h2><i class="fas fa-address-card"></i> Где со мной связаться</h2>
+            <ul class="contact-list">
+                <li><i class="fab fa-telegram"></i> <span class="copy-text" data-copy="@Sa11yTV">@Sa11yTV</span> <button class="copy-btn" data-copy="@Sa11yTV"><i class="far fa-copy"></i> Копировать</button></li>
+                <li><i class="fab fa-discord"></i> <span class="copy-text" data-copy="sallytv_">sallytv_</span> <button class="copy-btn" data-copy="sallytv_"><i class="far fa-copy"></i> Копировать</button></li>
+                <li><i class="fab fa-steam"></i> <span class="copy-text" data-copy="1770116796">1770116796</span> <button class="copy-btn" data-copy="1770116796"><i class="far fa-copy"></i> Копировать</button></li>
+            </ul>
+            <p class="steam-note">✨ Steam ID — добавляйтесь в друзья, буду рад!</p>
+        </section>
 
-            <!-- Финальные слова -->
-            <section class="card farewell">
-                <p>Спасибо, что прочитали! Надеюсь, вы поняли, кто я и какова моя точка зрения.</p>
-            </section>
-        </main>
+        <section class="card" style="animation-delay: 0.23s;">
+            <p style="text-align:center; font-size:1rem;">💙 Спасибо, что прочитали! Надеюсь, вы поняли, кто я и какова моя точка зрения. Заходи на стримы — будет весело (даже с лагами)!</p>
+        </section>
+    </main>
 
-        <!-- Футер -->
-        <footer>
-            <p>© <span id="current-year"></span> sallytv.online — сделано с душой</p>
-        </footer>
-    </div>
+    <footer>
+        <p>© <span id="current-year"></span> sallytv.online — сделано с душой, SEO и микроразметкой ✨</p>
+    </footer>
+</div>
 
-    <!-- Подключаем JS -->
-    <script src="script.js"></script>
+<div id="toastMessage" class="toast-notify">✓ Скопировано!</div>
+
+<script src="script.js"></script>
 </body>
 </html>

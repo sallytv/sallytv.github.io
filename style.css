@@ -1,4 +1,4 @@
-/* Общие настройки */
+/* RESET + база */
 * {
     margin: 0;
     padding: 0;
@@ -6,23 +6,31 @@
 }
 
 body {
-    font-family: 'Cormorant SC', serif;  /* твой красивый шрифт */
-    background: #000000;  /* чёрный фон */
-    color: #ffffff;  /* белый текст */
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at 10% 20%, #0a0a0f, #000000);
+    color: #f0f0f0;
+    line-height: 1.5;
     padding: 20px;
-    position: relative;
     min-height: 100vh;
-    font-weight: 400;
+    position: relative;
 }
 
-/* Контейнер для фоновых шестиугольников */
+/* кастомный скролл */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background: #3a3a44;
+    border-radius: 6px;
+}
+
+/* === ФОН с шестиугольниками (лёгкий) === */
 .hexagon-bg {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
@@ -30,152 +38,150 @@ body {
 
 .hexagon {
     position: absolute;
-    background: rgba(255, 255, 255, 0.2);  /* белые с прозрачностью */
-    border: 1px solid rgba(255, 255, 255, 0.3);  /* белая обводка для яркости */
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    width: 80px;
-    height: 70px;
-    opacity: 0.25;  /* заметнее, чем было */
-    filter: blur(0.5px);
-    animation: float 18s infinite ease-in-out;
     will-change: transform;
-    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    box-shadow: 0 0 6px rgba(100, 150, 255, 0.05);
 }
 
-/* Разные размеры и анимации задаются в JS */
 @keyframes float {
     0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(15px, -10px) rotate(3deg); }
-    50% { transform: translate(5px, 15px) rotate(5deg); }
-    75% { transform: translate(-10px, 5px) rotate(3deg); }
+    25% { transform: translate(12px, -8px) rotate(2deg); }
+    50% { transform: translate(5px, 12px) rotate(4deg); }
+    75% { transform: translate(-8px, 6px) rotate(2deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
 }
 
+/* контейнер */
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Шапка */
+/* шапка */
 header {
     text-align: center;
     margin-bottom: 40px;
+    animation: fadeUp 0.6s ease-out;
 }
 
 h1 {
-    font-size: 3rem;
+    font-family: 'Cormorant SC', serif;
+    font-size: 3.5rem;
     font-weight: 700;
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff, #b9d0ff, #e0c3ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     margin-bottom: 8px;
-    text-shadow: 0 0 15px rgba(255,255,255,0.3);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .intro {
-    font-size: 1.4rem;
-    color: #e0e0e0;
-    max-width: 700px;
-    margin: 0 auto;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 245, 0.03);
+    backdrop-filter: blur(2px);
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 50px;
     font-weight: 400;
+    color: #ddd;
 }
 
-/* Карточки */
+/* карточки — стекломорфизм */
 .card {
-    background: rgba(20, 20, 20, 0.8);
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 24px;
-    padding: 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 25px -8px rgba(255,255,255,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(18, 18, 26, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    transition: transform 0.2s ease, border-color 0.2s;
+    animation: fadeUp 0.5s ease-out backwards;
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 30px -12px rgba(255,255,255,0.2);
-    border-color: rgba(255,255,255,0.3);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(22, 22, 32, 0.8);
 }
 
 .card h2 {
-    font-size: 2rem;
+    font-family: 'Cormorant SC', serif;
+    font-size: 1.9rem;
     font-weight: 600;
-    margin-bottom: 20px;
-    color: #ffffff;
+    margin-bottom: 18px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    letter-spacing: 1px;
+    gap: 12px;
 }
 
 .card h2 i {
-    color: #ffffff;
-    opacity: 0.9;
+    font-size: 1.7rem;
+    color: #b0c4ff;
 }
 
-/* Теги (игры, музыка) */
+/* теги / чипсы */
 .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin: 15px 0;
+    margin: 18px 0 10px;
 }
 
 .tag {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 1rem;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-size: 0.85rem;
     font-weight: 500;
-    transition: all 0.2s;
-    backdrop-filter: blur(2px);
-
-    display: inline-block;
+    transition: 0.15s;
     text-decoration: none;
-    color: inherit;
-}
-
-.tag:visited {
-    color: inherit;
+    color: #f0f0f0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .tag:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(120, 150, 255, 0.2);
+    border-color: rgba(180, 200, 255, 0.6);
+    transform: scale(1.02);
 }
 
 .note {
-    font-style: italic;
-    color: #cccccc;
-    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-top: 12px;
+    padding-left: 12px;
+    border-left: 2px solid #3a3a55;
 }
 
-/* Предупреждение о железе */
+/* предупреждение */
 .warning {
-    background: rgba(40, 40, 40, 0.9);
-    border-left: 4px solid #ffffff;
-    padding: 16px;
-    border-radius: 16px;
+    background: rgba(30, 25, 45, 0.7);
+    border-radius: 20px;
+    padding: 16px 20px;
     display: flex;
-    gap: 15px;
-    align-items: flex-start;
-    margin: 20px 0 10px;
+    gap: 16px;
+    margin-top: 18px;
+    border: 1px solid rgba(255, 200, 150, 0.2);
 }
 
 .warning i {
-    color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    color: #ffc285;
 }
 
-.warning p {
-    margin: 0;
+.warning p strong {
+    color: #ffd966;
 }
 
-/* Контакты */
+/* контакты */
 .contact-list {
     list-style: none;
 }
@@ -183,10 +189,10 @@ h1 {
 .contact-list li {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
 }
 
 .contact-list li:last-child {
@@ -194,89 +200,124 @@ h1 {
 }
 
 .contact-list i {
-    width: 24px;
-    color: #ffffff;
-    font-size: 1.4rem;
+    width: 32px;
+    font-size: 1.5rem;
+    color: #b9d0ff;
 }
 
 .copy-text {
     cursor: pointer;
-    color: #ffffff;
+    background: rgba(255, 255, 240, 0.05);
+    padding: 4px 12px;
+    border-radius: 32px;
+    font-family: monospace;
     font-weight: 500;
-    text-decoration: underline dotted rgba(255,255,255,0.4);
 }
 
 .copy-btn {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 1.2rem;
+    padding: 5px 14px;
+    border-radius: 40px;
+    font-size: 0.8rem;
     cursor: pointer;
+    color: white;
+    transition: 0.15s;
     margin-left: auto;
-    padding: 4px 10px;
-    border-radius: 8px;
-    transition: all 0.2s;
-    color: #ffffff;
 }
 
 .copy-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(200, 220, 255, 0.2);
+    transform: scale(0.97);
 }
 
 .steam-note {
+    font-size: 0.8rem;
     margin-top: 10px;
-    color: #b0b0b0;
-    font-size: 1rem;
+    color: #aaa;
 }
 
-/* Футер */
+/* тост-уведомление */
+.toast-notify {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1e2aee;
+    backdrop-filter: blur(12px);
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.toast-notify.show {
+    opacity: 1;
+}
+
+/* футер */
 footer {
     text-align: center;
-    padding: 30px 0 10px;
-    color: #a0a0a0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    margin-top: 20px;
-    font-size: 1rem;
+    padding: 28px 0 12px;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 16px;
+    color: #aaa;
 }
 
-/* Адаптивность */
-@media (max-width: 600px) {
-    body {
-        padding: 15px;
+/* анимация появления */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+/* адаптивность */
+@media (max-width: 680px) {
+    body {
+        padding: 14px;
+    }
     h1 {
         font-size: 2.4rem;
     }
-
     .card {
-        padding: 20px;
+        padding: 18px;
     }
-
     .card h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
-
-    .tags {
-        gap: 8px;
-    }
-
-    .tag {
-        padding: 6px 14px;
-        font-size: 0.9rem;
-    }
-
     .warning {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
-
     .contact-list li {
-        font-size: 1.1rem;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
     }
-
     .copy-btn {
         margin-left: 0;
+        margin-top: 6px;
     }
+    .toast-notify {
+        white-space: normal;
+        text-align: center;
+        font-size: 0.75rem;
+        width: 80%;
+    }
+}
+
+/* отключаем лишние эффекты для слабых устройств */
+.card::before {
+    display: none;
 }

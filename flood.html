@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отсылки LuniperKill Flood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 30% 10%, #0a0a12, #020205);
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            color: #edf2fb;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(130deg, #f5f0ff, #b794f4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .description {
+            color: #a5b4e0;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px solid #2d3047;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 2rem 0 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #24283e;
+            padding: 0.2rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            color: #bcafff;
+        }
+
+        /* 10 текстовых слотов */
+        .records-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        .text-slot {
+            background: rgba(18, 20, 33, 0.8);
+            backdrop-filter: blur(3px);
+            border: 1px solid #32364f;
+            border-radius: 1.8rem;
+            padding: 1.2rem;
+            min-height: 130px;
+            font-size: 1rem;
+            color: #eff3ff;
+            text-align: center;
+            word-wrap: break-word;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-slot:empty::before {
+            content: "📝 [пустая запись — впишите текст в HTML]";
+            color: #69749b;
+            font-style: italic;
+        }
+
+        /* Контейнер для 7 кнопок */
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.3rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        /* Стиль кнопки + плавный переход цвета */
+        .color-btn {
+            background: #ff4d4d; /* начальный красный */
+            border: none;
+            border-radius: 60px;
+            padding: 0.8rem 1.5rem;
+            min-width: 130px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            font-family: inherit;
+        }
+
+        .color-btn:hover {
+            transform: scale(1.02);
+            filter: brightness(1.05);
+        }
+
+        .color-btn:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 680px) {
+            .text-slot {
+                min-height: 100px;
+            }
+            .color-btn {
+                min-width: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>кнопочки</h1>
+    <div class="description">хз жмите</div>
+
+    <!-- 10 записей (пустые, но можно написать текст внутри) -->
+    <div class="section-title">
+        отсылки
+        <span class="badge">хз вот отсылки, говорите чё можно добавить</span>
+    </div>
+    <div class="records-grid">
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+        <div class="text-slot"></div>
+    </div>
+
+    <!-- 7 кнопок, каждая меняет свой цвет независимо -->
+    <div class="section-title">
+        кнопки
+        <span class="badge">клик → следующий цвет</span>
+    </div>
+    <div class="buttons-container" id="buttonsContainer">
+        <!-- 7 пустых кнопок, текст добавим прямо в HTML (можно заменить) -->
+        <button class="color-btn">Кнопка 1</button>
+        <button class="color-btn">Кнопка 2</button>
+        <button class="color-btn">Кнопка 3</button>
+        <button class="color-btn">Кнопка 4</button>
+        <button class="color-btn">Кнопка 5</button>
+        <button class="color-btn">Кнопка 6</button>
+        <button class="color-btn">Кнопка 7</button>
+    </div>
+
+<script>
+    // Палитра цветов: от красного до фиолетового
+    const colorGradient = [
+        "#ff4d4d", // красный
+        "#ff8c42", // оранжевый
+        "#ffd966", // жёлтый
+        "#6fcf97", // зелёный
+        "#5dade2", // голубой
+        "#5b5be6", // синий
+        "#b97aff"  // фиолетовый
+    ];
+
+    // Находим все кнопки с классом .color-btn
+    const buttons = document.querySelectorAll('.color-btn');
+
+    // Для каждой кнопки храним текущий индекс цвета
+    buttons.forEach((btn, index) => {
+        // Устанавливаем начальный цвет (красный)
+        btn.style.backgroundColor = colorGradient[0];
+        let currentColorIndex = 0;
+
+        // Добавляем обработчик клика
+        btn.addEventListener('click', () => {
+            // Переход к следующему цвету (циклически)
+            currentColorIndex = (currentColorIndex + 1) % colorGradient.length;
+            btn.style.backgroundColor = colorGradient[currentColorIndex];
+        });
+    });
+</script>
+</body>
+</html>

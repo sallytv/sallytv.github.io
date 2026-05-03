@@ -228,12 +228,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Установить русский по умолчанию (активная кнопка уже будет)
     setLanguage('ru');
 });
-
-    // лёгкая оптимизация для сенсорных устройств
-    if ('ontouchstart' in window) {
-        const hexes = document.querySelectorAll('.hexagon');
-        hexes.forEach(h => {
-            h.style.animationDuration = '30s';
-        });
-    }
-});

@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
             hex.style.animation = `float ${duration}s infinite ease-in-out ${delay}s`;
             hexContainer.appendChild(hex);
         }
-        // пара крупных медленных для глубины
         for (let i = 0; i < 2; i++) {
             const big = document.createElement('div');
             big.classList.add('hexagon');
@@ -147,76 +146,107 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!t) return;
 
         // Заголовок и интро
-        document.querySelector('h1').textContent = t.titleMain;
-        document.querySelector('.intro').textContent = t.intro;
+        const h1 = document.querySelector('h1');
+        const intro = document.querySelector('.intro');
+        if (h1) h1.textContent = t.titleMain;
+        if (intro) intro.textContent = t.intro;
 
-        // Карточки
         const cards = document.querySelectorAll('.card');
+        if (cards.length === 0) return;
+
+        // Карточка 0: О моём контенте
         if (cards[0]) {
-            cards[0].querySelector('h2').innerHTML = `<i class="fas fa-gamepad"></i> ${t.card1_title}`;
+            const h2 = cards[0].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-gamepad"></i> ${t.card1_title}`;
             const paragraphs = cards[0].querySelectorAll('p');
             if (paragraphs[0]) paragraphs[0].textContent = t.card1_text1;
             if (paragraphs[1]) paragraphs[1].textContent = t.card1_text2;
-            if (paragraphs[2]) paragraphs[2].textContent = t.card1_text3;
-            const warning = cards[0].querySelector('.warning p');
-            if (warning) warning.innerHTML = t.card1_warning;
+            if (paragraphs[2]) paragraphs[2].textContent = t.card1_text3; // Это тот самый третий абзац
+            const warningP = cards[0].querySelector('.warning p');
+            if (warningP) warningP.innerHTML = t.card1_warning;
         }
+
+        // Карточка 1: Как я принимаю критику
         if (cards[1]) {
-            cards[1].querySelector('h2').innerHTML = `<i class="fas fa-comment-dots"></i> ${t.card2_title}`;
-            cards[1].querySelector('p').textContent = t.card2_text;
+            const h2 = cards[1].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-comment-dots"></i> ${t.card2_title}`;
+            const p = cards[1].querySelector('p');
+            if (p) p.textContent = t.card2_text;
         }
+
+        // Карточка 2: Любимые игры
         if (cards[2]) {
-            cards[2].querySelector('h2').innerHTML = `<i class="fas fa-heart"></i> ${t.card3_title}`;
+            const h2 = cards[2].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-heart"></i> ${t.card3_title}`;
             const note = cards[2].querySelector('.note');
             if (note) note.textContent = t.card3_note;
         }
+
+        // Карточка 3: Что слушаю
         if (cards[3]) {
-            cards[3].querySelector('h2').innerHTML = `<i class="fas fa-music"></i> ${t.card4_title}`;
-            cards[3].querySelector('p').textContent = t.card4_text;
+            const h2 = cards[3].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-music"></i> ${t.card4_title}`;
+            const p = cards[3].querySelector('p');
+            if (p) p.textContent = t.card4_text;
         }
+
+        // Карточка 4: Авиация
         if (cards[4]) {
-            cards[4].querySelector('h2').innerHTML = `<i class="fas fa-plane"></i> ${t.card5_title}`;
-            cards[4].querySelector('p').textContent = t.card5_text;
+            const h2 = cards[4].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-plane"></i> ${t.card5_title}`;
+            const p = cards[4].querySelector('p');
+            if (p) p.textContent = t.card5_text;
         }
+
+        // Карточка 5: IT
         if (cards[5]) {
-            cards[5].querySelector('h2').innerHTML = `<i class="fas fa-laptop-code"></i> ${t.card6_title}`;
-            cards[5].querySelector('p').textContent = t.card6_text;
+            const h2 = cards[5].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-laptop-code"></i> ${t.card6_title}`;
+            const p = cards[5].querySelector('p');
+            if (p) p.textContent = t.card6_text;
         }
+
+        // Карточка 6: Контакты
         if (cards[6]) {
-            cards[6].querySelector('h2').innerHTML = `<i class="fas fa-address-card"></i> ${t.card7_title}`;
+            const h2 = cards[6].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-address-card"></i> ${t.card7_title}`;
             const steamNote = cards[6].querySelector('.steam-note');
             if (steamNote) steamNote.textContent = t.card7_steam_note;
         }
+
+        // Карточка 7: Murko
         if (cards[7]) {
-            cards[7].querySelector('h2').innerHTML = `<i class="fas fa-folder-open"></i> ${t.card8_title}`;
-            cards[7].querySelector('p').textContent = t.card8_text;
+            const h2 = cards[7].querySelector('h2');
+            if (h2) h2.innerHTML = `<i class="fas fa-folder-open"></i> ${t.card8_title}`;
+            const p = cards[7].querySelector('p');
+            if (p) p.textContent = t.card8_text;
             const btn = cards[7].querySelector('.bio-button');
             if (btn) btn.textContent = t.card8_button;
         }
+
+        // Карточка 8: Финальная
         if (cards[8]) {
-            cards[8].querySelector('p').innerHTML = t.card9_text;
+            const p = cards[8].querySelector('p');
+            if (p) p.innerHTML = t.card9_text;
         }
 
         // Footer
         const footer = document.querySelector('footer p');
         if (footer) footer.innerHTML = t.footer_text;
 
-        // Обновить активную кнопку
+        // Кнопки активного языка
         const ruBtn = document.getElementById('langRu');
         const enBtn = document.getElementById('langEn');
-        if (ruBtn && enBtn) {
-            ruBtn.classList.toggle('active', lang === 'ru');
-            enBtn.classList.toggle('active', lang === 'en');
-        }
+        if (ruBtn) ruBtn.classList.toggle('active', lang === 'ru');
+        if (enBtn) enBtn.classList.toggle('active', lang === 'en');
     }
 
-    // Обработчики кнопок и установка языка по умолчанию
+    // Обработчики кнопок
     const ruBtn = document.getElementById('langRu');
     const enBtn = document.getElementById('langEn');
-    if (ruBtn && enBtn) {
-        ruBtn.addEventListener('click', () => setLanguage('ru'));
-        enBtn.addEventListener('click', () => setLanguage('en'));
-    }
-    // Установить русский язык
+    if (ruBtn) ruBtn.addEventListener('click', () => setLanguage('ru'));
+    if (enBtn) enBtn.addEventListener('click', () => setLanguage('en'));
+
+    // Установка русского языка по умолчанию
     setLanguage('ru');
 });

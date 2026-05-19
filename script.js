@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // тост-уведомление
+    // тост
     const toast = document.getElementById('toastMessage');
     let toastTimer = null;
-
     function showToast(msg) {
         if (!toast) return;
         toast.textContent = msg || '✓ Скопировано!';
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
     }
 
-    // копирование в буфер
+    // копирование
     async function copyText(text, btnElement) {
         try {
             await navigator.clipboard.writeText(text);
@@ -23,16 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (btnElement && btnElement.classList.contains('copy-btn')) {
                 const oldHtml = btnElement.innerHTML;
                 btnElement.innerHTML = '<i class="fas fa-check"></i> Готово';
-                setTimeout(() => {
-                    btnElement.innerHTML = oldHtml;
-                }, 1000);
+                setTimeout(() => { btnElement.innerHTML = oldHtml; }, 1000);
             }
         } catch (err) {
             showToast('❌ Ошибка, скопируй вручную');
         }
     }
 
-    // обработчики кнопок копирования
     document.querySelectorAll('.copy-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -40,8 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (text) copyText(text, btn);
         });
     });
-
-    // обработчики для спанов .copy-text
     document.querySelectorAll('.copy-text').forEach(span => {
         span.addEventListener('click', () => {
             const text = span.getAttribute('data-copy');
@@ -49,40 +43,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // генерация шестиугольников (оптимизировано)
-    const hexContainer = document.getElementById('hexagonBg');
-    if (hexContainer) {
-        hexContainer.innerHTML = '';
-        const hexCount = 8;
-        for (let i = 0; i < hexCount; i++) {
-            const hex = document.createElement('div');
-            hex.classList.add('hexagon');
-            const size = 50 + Math.random() * 110;
-            hex.style.width = size + 'px';
-            hex.style.height = (size * 0.866) + 'px';
-            hex.style.left = Math.random() * 100 + '%';
-            hex.style.top = Math.random() * 100 + '%';
-            hex.style.opacity = 0.1 + Math.random() * 0.15;
-            const duration = 15 + Math.random() * 20;
-            const delay = Math.random() * 12;
-            hex.style.animation = `float ${duration}s infinite ease-in-out ${delay}s`;
-            hexContainer.appendChild(hex);
-        }
-        for (let i = 0; i < 2; i++) {
-            const big = document.createElement('div');
-            big.classList.add('hexagon');
-            const s = 130 + Math.random() * 80;
-            big.style.width = s + 'px';
-            big.style.height = (s * 0.866) + 'px';
-            big.style.left = Math.random() * 100 + '%';
-            big.style.top = Math.random() * 100 + '%';
-            big.style.opacity = 0.04;
-            big.style.animation = `float ${35 + Math.random() * 30}s infinite ease-in-out`;
-            hexContainer.appendChild(big);
+    // Шестиугольники ТОЛЬКО на десктопе
+    const isMobile = window.innerWidth <= 680;
+    if (!isMobile) {
+        const hexContainer = document.getElementById('hexagonBg');
+        if (hexContainer) {
+            hexContainer.innerHTML = '';
+            const hexCount = 8;
+            for (let i = 0; i < hexCount; i++) {
+                const hex = document.createElement('div');
+                hex.classList.add('hexagon');
+                const size = 50 + Math.random() * 110;
+                hex.style.width = size + 'px';
+                hex.style.height = (size * 0.866) + 'px';
+                hex.style.left = Math.random() * 100 + '%';
+                hex.style.top = Math.random() * 100 + '%';
+                hex.style.opacity = 0.1 + Math.random() * 0.15;
+                const duration = 15 + Math.random() * 20;
+                const delay = Math.random() * 12;
+                hex.style.animation = `float ${duration}s infinite ease-in-out ${delay}s`;
+                hexContainer.appendChild(hex);
+            }
+            for (let i = 0; i < 2; i++) {
+                const big = document.createElement('div');
+                big.classList.add('hexagon');
+                const s = 130 + Math.random() * 80;
+                big.style.width = s + 'px';
+                big.style.height = (s * 0.866) + 'px';
+                big.style.left = Math.random() * 100 + '%';
+                big.style.top = Math.random() * 100 + '%';
+                big.style.opacity = 0.04;
+                big.style.animation = `float ${35 + Math.random() * 30}s infinite ease-in-out`;
+                hexContainer.appendChild(big);
+            }
         }
     }
 
-    // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА RU/EN =====
+    // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА =====
     const translations = {
         ru: {
             titleMain: "Привет, я Костя!",
@@ -145,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const t = translations[lang];
         if (!t) return;
 
-        // Заголовок и интро
         const h1 = document.querySelector('h1');
         const intro = document.querySelector('.intro');
         if (h1) h1.textContent = t.titleMain;
@@ -154,67 +150,53 @@ document.addEventListener('DOMContentLoaded', function() {
         const cards = document.querySelectorAll('.card');
         if (cards.length === 0) return;
 
-        // Карточка 0: О моём контенте
+        // карточка 0
         if (cards[0]) {
             const h2 = cards[0].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-gamepad"></i> ${t.card1_title}`;
-            const paragraphs = cards[0].querySelectorAll('p');
-            if (paragraphs[0]) paragraphs[0].textContent = t.card1_text1;
-            if (paragraphs[1]) paragraphs[1].textContent = t.card1_text2;
-            if (paragraphs[2]) paragraphs[2].textContent = t.card1_text3; // Это тот самый третий абзац
-            const warningP = cards[0].querySelector('.warning p');
-            if (warningP) warningP.innerHTML = t.card1_warning;
+            const paras = cards[0].querySelectorAll('p');
+            if (paras[0]) paras[0].textContent = t.card1_text1;
+            if (paras[1]) paras[1].textContent = t.card1_text2;
+            if (paras[2]) paras[2].textContent = t.card1_text3;
+            const warn = cards[0].querySelector('.warning p');
+            if (warn) warn.innerHTML = t.card1_warning;
         }
-
-        // Карточка 1: Как я принимаю критику
         if (cards[1]) {
             const h2 = cards[1].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-comment-dots"></i> ${t.card2_title}`;
             const p = cards[1].querySelector('p');
             if (p) p.textContent = t.card2_text;
         }
-
-        // Карточка 2: Любимые игры
         if (cards[2]) {
             const h2 = cards[2].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-heart"></i> ${t.card3_title}`;
             const note = cards[2].querySelector('.note');
             if (note) note.textContent = t.card3_note;
         }
-
-        // Карточка 3: Что слушаю
         if (cards[3]) {
             const h2 = cards[3].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-music"></i> ${t.card4_title}`;
             const p = cards[3].querySelector('p');
             if (p) p.textContent = t.card4_text;
         }
-
-        // Карточка 4: Авиация
         if (cards[4]) {
             const h2 = cards[4].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-plane"></i> ${t.card5_title}`;
             const p = cards[4].querySelector('p');
             if (p) p.textContent = t.card5_text;
         }
-
-        // Карточка 5: IT
         if (cards[5]) {
             const h2 = cards[5].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-laptop-code"></i> ${t.card6_title}`;
             const p = cards[5].querySelector('p');
             if (p) p.textContent = t.card6_text;
         }
-
-        // Карточка 6: Контакты
         if (cards[6]) {
             const h2 = cards[6].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-address-card"></i> ${t.card7_title}`;
-            const steamNote = cards[6].querySelector('.steam-note');
-            if (steamNote) steamNote.textContent = t.card7_steam_note;
+            const sn = cards[6].querySelector('.steam-note');
+            if (sn) sn.textContent = t.card7_steam_note;
         }
-
-        // Карточка 7: Murko
         if (cards[7]) {
             const h2 = cards[7].querySelector('h2');
             if (h2) h2.innerHTML = `<i class="fas fa-folder-open"></i> ${t.card8_title}`;
@@ -223,30 +205,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const btn = cards[7].querySelector('.bio-button');
             if (btn) btn.textContent = t.card8_button;
         }
-
-        // Карточка 8: Финальная
         if (cards[8]) {
             const p = cards[8].querySelector('p');
             if (p) p.innerHTML = t.card9_text;
         }
 
-        // Footer
         const footer = document.querySelector('footer p');
         if (footer) footer.innerHTML = t.footer_text;
 
-        // Кнопки активного языка
         const ruBtn = document.getElementById('langRu');
         const enBtn = document.getElementById('langEn');
         if (ruBtn) ruBtn.classList.toggle('active', lang === 'ru');
         if (enBtn) enBtn.classList.toggle('active', lang === 'en');
     }
 
-    // Обработчики кнопок
     const ruBtn = document.getElementById('langRu');
     const enBtn = document.getElementById('langEn');
     if (ruBtn) ruBtn.addEventListener('click', () => setLanguage('ru'));
     if (enBtn) enBtn.addEventListener('click', () => setLanguage('en'));
 
-    // Установка русского языка по умолчанию
     setLanguage('ru');
 });

@@ -15,6 +15,19 @@ body {
     position: relative;
 }
 
+:root {
+    --bg-dark: #0a0a0f;
+    --text-light: #f0f0f0;
+    --accent-blue: #b0c4ff;
+    --accent-dark: #3a3a44;
+    --warning-bg: #1e192d;
+    --warning-border: #ffc285;
+    --neon-blue: #00f0ff;
+    --card-bg: rgba(18, 18, 26, 0.75);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --copy-btn-hover: rgba(200, 220, 255, 0.2);
+}
+
 /* скролл только для десктопа */
 @media (min-width: 681px) {
     ::-webkit-scrollbar {
@@ -242,12 +255,6 @@ h1 {
 .copy-btn:hover {
     background: rgba(200, 220, 255, 0.2);
     transform: scale(0.97);
-}
-
-.steam-note {
-    font-size: 0.8rem;
-    margin-top: 10px;
-    color: #aaa;
 }
 
 .toast-notify {
